@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wangzifeng.mysqlboot.login.dao.TbUserDao" >
+  <resultMap id="BaseResultMap" type="com.wangzifeng.mysqlboot.login.model.TbUser" >
+
+    <constructor >
+      <arg column="id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="idcard" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="psw" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="removed" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="createdate" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+
+  <select id="getByName" resultMap="BaseResultMap">
+    select *  from tb_user t where 1=1
+    <if test="name != null" >
+      and t.name= #{name}
+    </if>
+
+  </select>
+
+</mapper>
